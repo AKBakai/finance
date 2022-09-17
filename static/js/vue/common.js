@@ -20,7 +20,7 @@ function get_regions() {
 function create_credit_app(data) {
     return axi.post('/api/credit-application/', data)
         .then(response => response.data)
-        .catch(() => console.log('Create credit error.'))
+        .catch(() => console.log('Create financing error.'))
 }
 
 

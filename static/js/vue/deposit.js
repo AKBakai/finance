@@ -1,5 +1,5 @@
 const app = new Vue({
-    el: '#credit-calc',
+    el: '#financing-calc',
     delimiters: ['[[', ']]'],
     data: {
         sum: SUM_MIN,

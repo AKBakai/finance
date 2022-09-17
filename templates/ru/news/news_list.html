@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+    <main class="news-list">
+      <div class="crumb">
+        <div class="container">
+            <div class="crumb-content"><a href="/ru/">Главная</a><a>Новости</a></div>
+        </div>
+      </div>
+      <div class="container">
+        <section class="news-list-content">
+          <h1>Новости</h1>
+          {% for news in news_list %}
+          <div class="news-list-grid">
+
+            <div class="news-item">
+              
+              
+              <div>
+                <a href="/news_list/news_detail"></a>
+                <div class="date">27 июля 2022 г.</div>
+                <h3>{{ news.title }}</h3>
+              </div>
+
+            </div>
+
+            <div class="news-item">
+
+            </div>
+          </div>
+          {% endfor %}
+          
+
+
+    <div class="pagination">
+
+            
+                <a class="active" class="num">1</a>
+            
+
+                <a href="?page=2" class="num">2</a>
+            
+
+                <a href="?page=3" class="num">3</a>
+            
+
+            <a href="?page=4" class="point">&hellip;</a>
+            <a href="?page=11"
+               class="num">11</a>
+        
+
+        
+            <a href="?page=2" class="right"></a>
+        
+    </div>
+
+        </section>
+      </div>
+    </main>
+{% endblock body %}
