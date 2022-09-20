@@ -7,7 +7,6 @@ class FeedbackAdmin(admin.ModelAdmin):
     save_as = True
     list_display_links = ('id', 'name',)
     search_fields = ('id', 'name', 'surname',)
-    list_filter = ('surname',)
     list_display = ('id', 'name', 'surname', 'phone', 'question')
     fields = ('name', 'surname', 'phone', 'question')
 

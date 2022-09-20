@@ -9,11 +9,11 @@ def news_list(request):
     context = {
         'news_list': news_lists
     }
-    return render(request, 'ru/news/news_list.html', context)
+    return render(request, 'news/news_list.html', context)
 
 
 def news_detail(request):
-    return render(request, 'ru/news/news_detail.html')
+    return render(request, 'news/news_detail.html')
 
 
 def search_1(request):
@@ -23,4 +23,4 @@ def search_1(request):
         news_lists = News.objects.filter(multiple_q)
     else:
         news_lists = News.objects.all()
-    return render(request, 'ru/news/news_list.html', {'news_list': news_lists})
+    return render(request, 'news/news_list.html', {'news_list': news_lists})

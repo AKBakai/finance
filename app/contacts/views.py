@@ -11,4 +11,4 @@ def contacts(request):
             return redirect('/')
     else:
         form = FeedbackForm()
-    return render(request, 'contacts/contacts.html', {'form': form})
+    return render(request, 'contacts/../../templates/contacts.html', {'form': form})
