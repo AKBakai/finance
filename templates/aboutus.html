@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block body %}
+  {% for about in aboutus %}
   <main class="about-company">
     <div class="crumb">
       <div class="container">
@@ -9,18 +10,12 @@
       </div>
     </div>
     <section class="about-company-banner">
-      <div class="banner-img">
-        <img src="/media/about_company.jpg.4800x1320_q85_box-0,351,15068,4493_crop_detail.jpg" alt="load img">
-      
+      <div class="banner-img"><img src="{{about.image.url}}" alt="load img" style="height: 480px">
         <div class="container">
           <div class="banner-description">
             <div class="ck-editor">
-              <h3><h1>Открытое акционерное общество</h1>
-
-<h1>Микрофинансовая компания</h1>
-
-<h1>&quot;Салым Финанс&quot;</h1></h3>
-              <p></p>
+              <h3><h1>{{about.title}}</h1>
+                  <p></p>
             </div>
           </div>
         </div>
@@ -29,181 +24,10 @@
     <div class="container">
       <section class="about-company__info">
         <div class="ck-editor">
-          <p style="text-align:justify"><span style="font-size:14px"><strong>Открытое Акционерное Общество Микрофинансовая компания &laquo;Салым Финанс&raquo; (далее Компания)</strong>&nbsp;- это финансовая организация, осуществляющая доступное кредитование и привлечение срочных депозитов, работающая на рынке ценных бумаг и сотрудничающая с международными финансовыми институтами. Компания относится к числу активно развивающихся микрофинансовых организаций Кыргызстана и показывает ежегодный стабильный рост финансовых показателей.</span></p>
-        </div>
-        <div class="about-company__card">
-          <div class="card-all">
-            
-              <div class="card" style="width: calc(20% - 32px)">
-                <div class="info" style="font-size: 30px;">14 лет</div>
-                <div class="name">В сфере финансовых услуг</div>
-              </div>
-            
-              <div class="card" style="width: calc(20% - 32px)">
-                <div class="info" style="font-size: 30px;">5 млрд. сом</div>
-                <div class="name">Активы компании</div>
-              </div>
-            
-              <div class="card" style="width: calc(20% - 32px)">
-                <div class="info" style="font-size: 30px;">21000+</div>
-                <div class="name">Активных клиентов</div>
-              </div>
-            
-              <div class="card" style="width: calc(20% - 32px)">
-                <div class="info" style="font-size: 30px;">200+</div>
-                <div class="name">Сотрудников в компании</div>
-              </div>
-            
-              <div class="card" style="width: calc(20% - 32px)">
-                <div class="info" style="font-size: 30px;">32</div>
-                <div class="name">Офиса по всей стране</div>
-              </div>
-            
-          </div>
-        </div>
-      </section>
-      <section class="mission-company">
-        <h2></h2>
-        <div class="ck-editor">
-          
-        </div>
-      </section>
-      <section class="company-values">
-        <h2></h2>
-        <div class="grid">
-          
-        </div>
-
-        <div class="company-values__info">
-          <div class="sticky-box">
-            
-              <div class="box" style="background: url(/media/background_0rOSADM.svg) right no-repeat"></div>
-            
-          </div>
-          
-            <div class="company-values__info-block">
-              <h2>Основные этапы развития:</h2>
-              <ol>
-	<li style="text-align:justify"><strong><span style="color:red">Учреждение и создание:&nbsp;</span></strong>05 ноября 2007 года, под наименованием ОсОО МКК &ldquo;Кредитные системы&rdquo;, получена Лицензия Национального банка Кыргызской Республики № 006 от 08 ноября 2007 года;</li>
-	<li style="text-align:justify"><strong><span style="color:red">Переименование:</span></strong>&nbsp;24 января 2011 года в ОсОО МКК &ldquo;Салым Финанс&rdquo;;</li>
-	<li style="text-align:justify"><span style="font-size:14px"><strong><span style="color:red">Преобразование:</span></strong>&nbsp;28 сентября 2012 года в Открытое Акционерное Общество Микрофинансовая компания &laquo;Салым Финанс&raquo; с уставным капиталом 100&nbsp;000&nbsp;000 (Сто миллионов) сом;</span></li>
-	<li style="text-align:justify"><strong><span style="color:red">Получение права</span></strong>&nbsp;на кредитование и&nbsp;<strong><span style="color:red">операции в иностранной валюте</span></strong>&nbsp;согласно Лицензии № 006/1 на право проведения банковских операций в иностранной валюте от 24 сентября 2014 года;</li>
-	<li style="text-align:justify"><strong><span style="color:red">Получение права на привлечение срочных депозитов</span></strong>&nbsp;в связи со снятием ограничений и обновлением Лицензии от 28 мая 2019 года.</li>
-</ol>
-
-<p>&nbsp;</p>
-
-<p style="text-align:justify"><span style="font-size:14px"><span style="color:#0b1f35">ОАО МФК &laquo;Салым Финанс&raquo; позиционируется как финансовая организация активно предоставляющие кредиты &nbsp;по &nbsp;всей территории Кыргызской Республики, также обладающая социально - ориентированной функцией&nbsp; и проводящая политику ответственного финансирования и защиты прав клиентов.</span></span></p>
-
-<p style="text-align:justify"><span style="font-size:14px"><span style="color:#0b1f35">По данным Ассоциации микрофинансовых организаций Кыргызской Республики по величине кредитного портфеля ОАО МФК &laquo;Салым Финанс&raquo; является крупнейшей микрофинансовой организацией с местным капиталом.</span></span></p>
-
-<p style="text-align:justify"><span style="font-size:14px"><span style="color:#0b1f35">Предоставление кредитов ОАО МФК &laquo;Салым Финанс&raquo;&nbsp; как в сельской местности, так и в городах представляет ее&nbsp; как универсальную финансовую организацию, работающую как с клиентами микрофинансирования, так и с клиентами банковского сектора.</span></span></p>
-
-<p style="text-align:justify"><span style="font-size:14px"><span style="color:#0b1f35">Компания не ограничивается деятельностью в сфере кредитования и привлечения депозитов, активно работая и на фондовом рынке ценных бумаг. МФК &quot;Салым Финанс&quot; первая в Кыргызстане осуществила IPO - публичное размещение акций компании на фондовой бирже, ранее показав себя успешным эмитентом, разместив несколько выпусков корпоративных облигаций.&nbsp;</span></span></p>
-            </div>
-          
-            <div class="company-values__info-block">
-              <h2>Совет директоров</h2>
-              <p style="text-align:justify"><span style="font-size:14px"><strong>Председатель Совета Директоров</strong>&nbsp;&ndash; Кыдырмаев Бакытбек Ишенбекович.&nbsp;</span></p>
-
-<p style="text-align:justify"><span style="font-size:14px">Бизнесмен, один из начинателей транзитной международной оптовой торговли через рынок &laquo;Дордой&raquo;, &nbsp;член профсоюзного комитета работников рынка &laquo;Дордой&raquo;.&nbsp;С 1995 года по настоящее время работает на рынке &laquo;Дордой&raquo;, занимается оптовой торговлей оптикой.</span></p>
-
-<p style="text-align:justify">&nbsp;</p>
-
-<p style="text-align:justify"><span style="font-size:14px"><strong>Член Совета Директоров</strong>&nbsp;&ndash;&nbsp;Сыдыков Айжигит Камчыбекович.&nbsp;</span></p>
-
-<p style="text-align:justify"><span style="font-size:14px">Независимый эксперт. Имеет опыт в секторе микрофинансирования с 1995 года. &nbsp; Занимал должность зам.операционного директора в ЗАО &quot;МКК ФИНКА&quot; в Кыргызстане, операционного директора в ООО МДО &quot;ФИНКА&quot; в Таджикистане, в ЗАО &laquo;Первая микрокредитная компания&raquo; - сети развития Ага Хана в Кыргызстане, в ЗАО &laquo;Микрокредитная компания ОКСУС&raquo;.</span></p>
-
-<p style="text-align:justify">&nbsp;</p>
-
-<p style="text-align:justify"><span style="font-size:14px"><strong>Член Совета Директоров</strong>&nbsp;&ndash;&nbsp;</span><span style="font-size:11.0pt"><span style="color:#0b1f35">Конушбаев Тынчтыкбек&nbsp;&nbsp;</span></span><span style="font-size:11.0pt"><span style="color:#0b1f35">Кадырбекович.</span></span></p>
-
-<p style="text-align:justify"><span style="font-size:11.0pt"><span style="color:#0b1f35">Учредитель и глава корпорации &quot;Байтур&quot; , Президент общественного фонда &quot;Кожомкул&quot;. Отечественный предприниматель, реализовавший множество значимых проектов в сфере туризма и оздоровительных услуг, строительства многоквартирного жилья, производства строительных материалов и мебели.</span></span></p>
-
-<p style="text-align:justify">&nbsp;</p>
-
-<p style="text-align:justify"><span style="font-size:14px"><strong><span style="color:#0b1f35">Член Совета Директоров&nbsp;</span></strong><span style="color:#0b1f35">&ndash;&nbsp;</span><span style="color:black">Джаманкулов Болот Сапарович.&nbsp;</span></span></p>
-
-<p style="text-align:justify"><span style="font-size:14px">Независимый Эксперт.&nbsp;<span style="color:#0b1f35">Доктор экономических наук. С 1997 по 1998 г. работал</span> первым заместителем министерства внешней торговли и промышленности КР.</span></p>
-
-<p style="text-align:justify"><span style="font-size:14px"><span style="color:black">Имеет большой опыт в банковской и финансовой системе, в том числе в составе руководства ОАО &laquo;Росинбанк&raquo;, АТФ-Банк Кыргызстан, АКБ &laquo;Кыргызстан&raquo;, Национального банка.</span> <span style="color:#0b1f35">С</span> 2013 года по настоящее время работает в институте экономики Национальной академии наук КР в должности заведующего отделом.</span></p>
-
-<p style="text-align:justify">&nbsp;</p>
-
-<p style="text-align:justify"><span style="font-size:14px"><strong><span style="color:black">Член Совета Директоров&nbsp;</span></strong>-<strong>&nbsp;</strong><span style="color:black">Конокбаев Самат Сурабалдыевич.&nbsp;</span></span></p>
-
-<p style="text-align:justify"><span style="font-size:14px"><span style="color:black">Независимый Эксперт.Имеет опыт в банковской и финансовой системе с 1998 года, в том числе проработал в составе руководства Национального банка КР, КумторГолдКомпани, а также в Российско-Кыргызском Фонде развития. Имеет степень магистра государственного управления по специализации &ndash; переходная экономика, полученную в Японии (Токио), диплом по финансово-банковскому менеджменту Кыргызско-Российского Славянского университета. Имеет обширное дополнительное образование, успешно окончил специализацию Уортонской &nbsp;школы бизнеса, (США) по специальности бизнес-аналитик и специализацию университета Женевы по инвестиционному менеджменту.</span></span><strong><span style="font-size:11.0pt"><span style="color:black"> </span></span></strong></p>
-            </div>
-          
-
-          
-            <div class="leadership__info">
-              <h2>Правление</h2>
-              <p></p>
-              <div class="grid">
-                
-                  <div class="item">
-                    <div class="left">
-                      <img src="/img/svg/user.svg"/></div>
-                    <div class="right">
-                      <div class="status">Председатель Правления</div>
-                      <div class="name">Кулов Мирлан Темирланович</div>
-                      <div class="desc">С 1996 года в финансово-кредитной сфере, с 2004 года на руководящих должностях.  До 2006 года работал в ОАО «Коммерческий банк «Кыргызстан»» на должностях – начиная от специалиста до члена правления. В 2006-2007 годы проработал в ОАО «Доскредобанк» на должности Начальника отдела казначейства. В 2007 году инициировал основание ОАО МФК «Салым Финанс» и с тех пор является Председателем Правления.</div>
-                    </div>
-                  </div>
-                
-                  <div class="item">
-                    <div class="left">
-                      <img src="/img/svg/user.svg"/></div>
-                    <div class="right">
-                      <div class="status">Член Правления – Операционный менеджер</div>
-                      <div class="name">Ибраев Исабек Айтбекович</div>
-                      <div class="desc">Начал свою деятельность в кредитной сфере в ОАО МФК «Салым Финанс» с 2011 года кредитным специалистом. В финансово-кредитной сфере более 9 лет, с 2018 года по настоящее время - операционный менеджер ОАО МФК «Салым Финанс».</div>
-                    </div>
-                  </div>
-                
-                  <div class="item">
-                    <div class="left">
-                      <img src="/img/svg/user.svg"/></div>
-                    <div class="right">
-                      <div class="status">Член Правления – Руководитель Управления Человеческими ресурсами</div>
-                      <div class="name">Исмаилова Гульзат Сыдыковна</div>
-                      <div class="desc">Работает с 1999 года в микрофинансовой сфере. Имеет 2 года опыта бухгалтером в банке, 10 лет опыта работы в сфере аудита в МКК «ФИНКА», МКК «Первая микрокредитная компания», около 6 лет директором филиалов в «Первой микрокредитной компании» (регионы Нарын, Ош (Кара-Суу)), региональным менеджером в ЗАО МКК «АУБ Агро» (Иссык-Куль). С 2017 года начала работать в ОАО МФК «Салым Финанс» операционным менеджером, с 2018 года HR менеджером.</div>
-                    </div>
-                  </div>
-                
-                  <div class="item">
-                    <div class="left">
-                      <img src="/img/svg/user.svg"/></div>
-                    <div class="right">
-                      <div class="status">Член Правления - Начальник Юридического управления</div>
-                      <div class="name">Райымкулов Медер Анарбекович</div>
-                      <div class="desc">Юридический стаж более 11 лет.  На руководящих должностях с 2016 года. С 2019 года работает в ОАО МФК «Салым Финанс».</div>
-                    </div>
-                  </div>
-                
-                  <div class="item">
-                    <div class="left">
-                      <img src="/img/svg/user.svg"/></div>
-                    <div class="right">
-                      <div class="status">Член Правления – Начальник Кредитного управления</div>
-                      <div class="name">Дюшеева Айжан Алмазбековна</div>
-                      <div class="desc">Свою деятельность в кредитной сфере начала в ОАО МФК «Салым Финанс» с 2014 года, в финансово-кредитной сфере более 8 лет. На руководящих должностях с 2017 года, с 2021 года по настоящее время – начальник Кредитного управления ОАО МФК «Салым Финанс».</div>
-                    </div>
-                  </div>
-                
-              </div>
-            </div>
-          
-
-          
-            <div class="company-values__info-block">
-              <h2>Ребрендинг</h2>
-              <p style="text-align:justify"><span style="font-size:14px">С момента создания Компания имела наименование &laquo;Кредитные системы&raquo;, с марта 2011 года Компания изменила свое название на &laquo;Салым финанс&raquo;, слово &laquo;салым&raquo; означает вклад в хорошее дело. Придан национальный символ означающий стремление Компании к вложению своих ресурсов в благополучие общества.</span></p>
-            </div>
-          
+          <p>{{about.text|safe}}</p>
         </div>
       </section>
     </div>
   </main>
+  {% endfor %}
 {% endblock body %}

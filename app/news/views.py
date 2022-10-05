@@ -12,8 +12,9 @@ def news_list(request):
     return render(request, 'news/news_list.html', context)
 
 
-def news_detail(request):
-    return render(request, 'news/news_detail.html')
+def news_detail(request, id):
+    news_detail = News.objects.get(id=id)
+    return render(request, 'news/news_detail.html', {'news_detail': news_detail})
 
 
 def search_1(request):

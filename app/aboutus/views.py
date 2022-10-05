@@ -1,5 +1,11 @@
 from django.shortcuts import render
 
+from app.aboutus.models import AboutUs
+
 
 def about_us(request):
-    return render(request, 'ru/../../templates/aboutus.html')
+    about_us = AboutUs.objects.all()
+    context = {
+        'aboutus': about_us,
+    }
+    return render(request, 'aboutus.html', context)

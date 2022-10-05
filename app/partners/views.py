@@ -1,5 +1,8 @@
 from django.shortcuts import render
 
+from app.partners.models import Partners
+
 
 def partners(request):
-    return render(request, 'ru/../../templates/partners.html')
+    partners = Partners.objects.all()
+    return render(request, 'partners.html', {'partners': partners})

@@ -10,38 +10,39 @@
   <div class="container">
     <section class="partners__info">
       <h1>Партнеры</h1>
-        <div  style="display:none;">
-            <p><h1><samp><u><em><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</em></u></samp></h1></p>
-        </div>
+{#        <div  style="display:none;">#}
+{#            <p><h1><samp><u><em><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</em></u></samp></h1></p>#}
+{#        </div>#}
       <div class="grid">
-        
-            <div class="item"><img src="/media/Logo_BlueOrchard_IVqX11Z.jpg"/></div>
-        
-            <div class="item"><img src="/media/logo_lmdf_vsD00JO.png"/></div>
-        
-            <div class="item"><img src="/media/FGCA_Logo_FMCi1P4.png"/></div>
-        
-            <div class="item"><img src="/media/logo-amfi_7fbZBL6.png"/></div>
-        
-            <div class="item"><img src="/media/logo-frontiers_VKayumR.png"/></div>
-        
-            <div class="item"><img src="/media/logo-ishenim_R4Monxm.png"/></div>
-        
-            <div class="item"><img src="/media/logo-MVEST_IS7YyOs.png"/></div>
-        
-            <div class="item"><img src="/media/logo-senti_e7IL1hO.png"/></div>
-        
-            <div class="item"><img src="/media/logo-triplejump_kdLkv6S.png"/></div>
-        
-            <div class="item"><img src="/media/logo-ub.kg_ENx8dds.png"/></div>
-        
-            <div class="item"><img src="/media/FS_IF.png"/></div>
-        
-            <div class="item"><img src="/media/Lendahand.png"/></div>
-        
-            <div class="item"><img src="/media/DWMarkets.png"/></div>
-        
-            <div class="item"><img src="/media/EnablingQapital.jpg"/></div>
+            {% for partner in partners %}
+            <div class="item"><img src="{{partner.photo.url}}"/></div>
+            {% endfor %}
+{#        #}
+{#            <div class="item"><img src="/media/logo_lmdf_vsD00JO.png"/></div>#}
+{##}
+{#            <div class="item"><img src="/media/FGCA_Logo_FMCi1P4.png"/></div>#}
+{##}
+{#            <div class="item"><img src="/media/logo-amfi_7fbZBL6.png"/></div>#}
+{##}
+{#            <div class="item"><img src="/media/logo-frontiers_VKayumR.png"/></div>#}
+{##}
+{#            <div class="item"><img src="/media/logo-ishenim_R4Monxm.png"/></div>#}
+{##}
+{#            <div class="item"><img src="/media/logo-MVEST_IS7YyOs.png"/></div>#}
+{##}
+{#            <div class="item"><img src="/media/logo-senti_e7IL1hO.png"/></div>#}
+{##}
+{#            <div class="item"><img src="/media/logo-triplejump_kdLkv6S.png"/></div>#}
+{##}
+{#            <div class="item"><img src="/media/logo-ub.kg_ENx8dds.png"/></div>#}
+{##}
+{#            <div class="item"><img src="/media/FS_IF.png"/></div>#}
+{##}
+{#            <div class="item"><img src="/media/Lendahand.png"/></div>#}
+{##}
+{#            <div class="item"><img src="/media/DWMarkets.png"/></div>#}
+{##}
+{#            <div class="item"><img src="/media/EnablingQapital.jpg"/></div>#}
         
       </div>
     </section>

@@ -50,52 +50,43 @@
     <div class="container">
         <section class="view-card">
             <div class="row">
-                <div class="card large-card" style="background-image: url({% static 'img/jpg/mn1.jpg' %})">
-                    <h3>{% trans '«ИслаМиКо Финанс»' %}</h3>
-                    <h4><span style="color: #777777">{% trans 'Текст' %}
-                    </span>
+                {% for i in about_us_short %}
+                <div class="card large-card" style="background-image: url({{i.image.url}})">
+                    <h3>{{i.title}}</h3>
+                    <h4><span style="color: #777777">{{ i.text|safe}}</span>
                     </h4>
                 </div>
+                {% endfor %}
 
-
-                            <div class="card small-card" style="background-image: url({% static 'img/jpg/mn1.jpg' %})">
-                              <h3><center>{% trans 'Свяжитесь с нами!' %}</center></h3>
-                              <center>
+                            {% for c in contacts_data %}
+                            <div class="card small-card" style="background-image: url({{c.image.url}})">
+                              <h3><center>{{ c.title }}</center></h3>
                               <ul class="row-list">
-                              <li> 0555 000 000</li>
-                              <li> 0700 000 000</li>
-                              <li> 0777 000 000</li>
-                              <li> islamicofinance@gmail.com</li>
+                              <li>{{c.text|safe}}</li>
                               </ul>
-                              </center>
                             </div>
+                            {% endfor %}
             </div>
-            <div class="row">
+{#            <div class="row">#}
+{#            {% for financing in financing_list %}#}
+{#                <div class="card small-card"#}
+{#                     style="background-image: url({{financing.image.url}}); margin-left: 0; margin-right: 32px;">#}
+{#                        <img src="{{financing.image.url}}" alt="load img">#}
+{#                    <h4>{{financing.title}}</h4>#}
+{#                </div>#}
 
-                <div class="card small-card"
-                     style="background-image: url({% static 'img/jpg/mn1.jpg' %}); margin-left: 0;"><a
-                        href="#"></a>
-                    <h3>Мурабаха на потребительские цели</h3>
-                    <p>Потребительское финансирования на приобретение различных товаров повседневного использования:
-                       бытовая техника, мебель, компьютерная техника, средства связи и т.п.</p>
-                </div>
-                <div class="card small-card" style="background-image: url({% static 'img/jpg/mn1.jpg' %})"><a
-                        href="#"></a>
-                    <h3>Мурабаха-Универсал</h3>
-                    <p>развития бизнеса(предпринимательское дело), которым недостаточно
-                        собственных средств, для расширения собственного бизнеса</p>
-                </div>
-                <div class="card small-card" style="background-image: url({% static 'img/jpg/mn1.jpg' %})"><a
-                        href="#"></a>
-                    <h3>Мурабаха-Универсал</h3>
-                    <p>строительство (покупка строительных материалов для личного пользования)</p>
-                </div>
-                <div class="card small-card" style="background-image: url({% static 'img/jpg/mn1.jpg' %})"><a
-                        href="#"></a>
-                    <h3>Мурабаха-Универсал</h3>
-                    <p>развития сельского хозяйство (животноводство и растениеводство)</p>
-                </div>
-            </div>
+{#             <div class="card-credit-detail">#}
+{#              <div class="credit-card__description">#}
+{#                <h3>{{ financing.title }}</h3>#}
+{#                <p class="dark">{{ finance.paragraph }}</p>#}
+{#              </div>#}
+{#              <div class="credit-card-but"><a href="/financing_list/financing_detail">Подробнее</a></div>#}
+{#              <div class="credit-card-img">#}
+{#                  <img src="{{finance.image.url}}" alt="load img"/>#}
+{#              </div>#}
+{#            </div>#}
+{#            {% endfor %}#}
+{#            </div>#}
         </section>
 
         <section class="news-section">
@@ -103,39 +94,39 @@
                 <h2>{% trans 'Новости' %}</h2>
                 <div class="button"><a href="/ru/about/news/">{% trans 'Все новости' %}</a></div>
             </div>
-            <div class="card-all">
-
+            <div class="card-all" style="margin-bottom: 30px">
+                {% for news in news_list %}
                 <div class="card">
                     <div class="news-section__card">
-                        <div class="date">27 июля 2022 г.</div>
-                        <p>Филиал “Бишкек-Восток” переехал в новый офис по адресу: пр. Чуй 26/ул. 7 апреля.</p><a
-                            href="/ru/about/news/filial-bishkek-vostok-pereehal-v-novyj-ofis-po-adr/"></a>
+                        <div class="date">{{news.created_at}}</div>
+                        <p>{{news.title}}</p><a href="/news_list/news_detail"></a>
                     </div>
                 </div>
+                {% endfor %}
 
-                <div class="card">
-                    <div class="news-section__card">
-                        <div class="date">18 июля 2022 г.</div>
-                        <p>Открытие нового представительства в с. Ат-Башы</p><a
-                            href="/ru/about/news/otkrytie-novogo-predstavitelstva-v-s-bashy/"></a>
-                    </div>
-                </div>
+{#                <div class="card">#}
+{#                    <div class="news-section__card">#}
+{#                        <div class="date">18 июля 2022 г.</div>#}
+{#                        <p>Открытие нового представительства в с. Ат-Башы</p><a#}
+{#                            href="/ru/about/news/otkrytie-novogo-predstavitelstva-v-s-bashy/"></a>#}
+{#                    </div>#}
+{#                </div>#}
 
-                <div class="card">
-                    <div class="news-section__card">
-                        <div class="date">7 июля 2022 г.</div>
-                        <p>График работы в предстоящий праздник.</p><a
-                            href="/ru/about/news/grafik-raboty-v-predstoyashij-prazdnik/"></a>
-                    </div>
-                </div>
+{#                <div class="card">#}
+{#                    <div class="news-section__card">#}
+{#                        <div class="date">7 июля 2022 г.</div>#}
+{#                        <p>График работы в предстоящий праздник.</p><a#}
+{#                            href="/ru/about/news/grafik-raboty-v-predstoyashij-prazdnik/"></a>#}
+{#                    </div>#}
+{#                </div>#}
 
-                <div class="card">
-                    <div class="news-section__card">
-                        <div class="date">24 июня 2022 г.</div>
-                        <p>Официальное открытие нового представительства МФК «Салым Финанс» в г. Кочкор-Ата.</p><a
-                            href="/ru/about/news/oficialnoe-otkrytie-novogo-predstavitelstva-mfk-sa/"></a>
-                    </div>
-                </div>
+{#                <div class="card">#}
+{#                    <div class="news-section__card">#}
+{#                        <div class="date">24 июня 2022 г.</div>#}
+{#                        <p>Официальное открытие нового представительства МФК «Салым Финанс» в г. Кочкор-Ата.</p><a#}
+{#                            href="/ru/about/news/oficialnoe-otkrytie-novogo-predstavitelstva-mfk-sa/"></a>#}
+{#                    </div>#}
+{#                </div>#}
 
             </div>
         </section>

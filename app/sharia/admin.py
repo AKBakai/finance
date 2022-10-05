@@ -1,3 +1,7 @@
 from django.contrib import admin
+from parler.admin import TranslatableAdmin
 
-# Register your models here.
+from app.sharia.models import ShariaBoard, ShariaBoardInfo
+
+admin.site.register(ShariaBoard, TranslatableAdmin)
+admin.site.register(ShariaBoardInfo, TranslatableAdmin)

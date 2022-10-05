@@ -7,32 +7,26 @@
       <div class="crumb-content"><a href="/static">Главная</a><a>Шариатский совет</a></div>
     </div>
   </div>
+  {% for sharia in sharia_board %}
   <section class="about-company-banner">
     
-    <div class="banner-img"><img src="/media/1254_rQyeGqO.jpg.1600x440_q85_box-0,201,15068,4342_crop_detail.jpg" alt="load img">
+    <div class="banner-img"><img src="{{sharia.image.url}}" alt="load img" style="height: 480px">
     
       <div class="container">
         <div class="banner-description">
-          <h3>Акционеры</h3>
-          <p>Акционеры ОАО МФК «Салым Финанс» представляют собой объединение отечественных бизнесменов и финансистов с целью создания и развития финансового учреждения представленного на микрофинансовом рынке.</p>
+          <h3>{{ sharia.title }}</h3>
+          <p>{{ sharia.paragraph}}</p>
         </div>
       </div>
     </div>
   </section>
+  {% endfor %}
   <div class="container">
     <section class="main-shareholders">
       
       <div class="shareholders-card-all">
         <div class="card-all">
-          
-          
-          
-          
-          
-          
-          
-          
-          
+
         </div>
       </div>
 
@@ -40,29 +34,30 @@
       <div class="shareholders-table">
         <div class="shareholders-table-inner">
           <div class="shareholders-table-row">
-            <div class="shareholders-table-column">ФИО акционера</div>
-            <div class="shareholders-table-column">Сфера деятельности</div>
+            <div class="shareholders-table-column">Члены Шариатского совета</div>
+            <div class="shareholders-table-column">Информация о членах Шариатского совета</div>
           </div>
-        
+          {% for info in sharia_info %}
           <div class="shareholders-table-row">
-            <div class="shareholders-table-column">Беделбаева Роза</div>
-            <div class="shareholders-table-column">Частный предприниматель – деятельность на торговых рынках и в сельском хозяйстве</div>
+            <div class="shareholders-table-column">{{ info.title }}</div>
+            <div class="shareholders-table-column">{{ info.paragraph }}</div>
           </div>
+          {% endfor %}
         
-          <div class="shareholders-table-row">
-            <div class="shareholders-table-column">Джумалиева Роза</div>
-            <div class="shareholders-table-column">Частное предпринимательство в Кыргызстане. С 2010 года сотрудник ОАО МФК «Салым Финанс»</div>
-          </div>
-        
-          <div class="shareholders-table-row">
-            <div class="shareholders-table-column">Конушбаева Арууке</div>
-            <div class="shareholders-table-column">Многоотраслевая компания «Байтур» — СПА-Услуги, Торговля, Строительство, Производство строительных материалов и мебели. Полная информации об истории компании «Байтур» на сайте www.baytur.kg</div>
-          </div>
-        
-          <div class="shareholders-table-row">
-            <div class="shareholders-table-column">Кыдырмаев Бакытбек</div>
-            <div class="shareholders-table-column">Один из начинателей транзитной международной торговли: Китай – Кыргызстан — Казахстан, Россия — на рынке Дордой, является заместителем Председателя Профсоюзного комитета рынка «Дордой»</div>
-          </div>
+{#          <div class="shareholders-table-row">#}
+{#            <div class="shareholders-table-column">Джумалиева Роза</div>#}
+{#            <div class="shareholders-table-column">Частное предпринимательство в Кыргызстане. С 2010 года сотрудник ОАО МФК «Салым Финанс»</div>#}
+{#          </div>#}
+{#        #}
+{#          <div class="shareholders-table-row">#}
+{#            <div class="shareholders-table-column">Конушбаева Арууке</div>#}
+{#            <div class="shareholders-table-column">Многоотраслевая компания «Байтур» — СПА-Услуги, Торговля, Строительство, Производство строительных материалов и мебели. Полная информации об истории компании «Байтур» на сайте www.baytur.kg</div>#}
+{#          </div>#}
+{#        #}
+{#          <div class="shareholders-table-row">#}
+{#            <div class="shareholders-table-column">Кыдырмаев Бакытбек</div>#}
+{#            <div class="shareholders-table-column">Один из начинателей транзитной международной торговли: Китай – Кыргызстан — Казахстан, Россия — на рынке Дордой, является заместителем Председателя Профсоюзного комитета рынка «Дордой»</div>#}
+{#          </div>#}
         
         </div>
       </div>

@@ -10,25 +10,18 @@
       <div class="container">
         <section class="news-list-content">
           <h1>Новости</h1>
-          {% for news in news_list %}
           <div class="news-list-grid">
-
+            {% for news in news_list %}
             <div class="news-item">
-              
-              
               <div>
-                <a href="/news_list/news_detail"></a>
-                <div class="date">27 июля 2022 г.</div>
+                <a href="{% url 'news_list:news_detail' id=news.id %}"></a>
+                <div class="date">{{ news.created_at}}</div>
                 <h3>{{ news.title }}</h3>
               </div>
-
             </div>
-
-            <div class="news-item">
-
-            </div>
+            {% endfor %}
           </div>
-          {% endfor %}
+
           
 
 

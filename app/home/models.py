@@ -1,3 +1,4 @@
+from ckeditor.fields import RichTextField
 from django.db import models
 from parler.models import TranslatableModel, TranslatedFields
 
@@ -7,8 +8,6 @@ class Carousel(TranslatableModel):
         title=models.CharField(verbose_name="Наименование", max_length=255),
         paragraph=models.TextField(verbose_name='Абзац'),
         image=models.ImageField(upload_to='Carousel/%Y/%m/%d'),
-        created_at=models.DateTimeField(verbose_name='Дата и время создания', auto_now_add=True, null=True, blank=True),
-        updated_at=models.DateTimeField(verbose_name='Дата и время обновления', auto_now=True, null=True, blank=True),
     )
 
     def __str__(self) -> str:
@@ -16,6 +15,34 @@ class Carousel(TranslatableModel):
 
     class Meta:
         verbose_name_plural = 'Слайды'
+
+
+class AboutUsShort(TranslatableModel):
+    translations = TranslatedFields(
+        title=models.CharField(verbose_name="Наименование", max_length=255),
+        text=RichTextField(verbose_name='Текст',),
+        image=models.ImageField(upload_to='AboutUsShort/%Y/%m/%d'),
+    )
+
+    def __str__(self) -> str:
+        return self.title
+
+    class Meta:
+        verbose_name_plural = 'Коротко о нас'
+
+
+class ContactUsShort(TranslatableModel):
+    translations = TranslatedFields(
+        title=models.CharField(verbose_name="Наименование", max_length=255),
+        text=RichTextField(verbose_name='Текст',),
+        image=models.ImageField(upload_to='ContactUsShort/%Y/%m/%d'),
+    )
+
+    def __str__(self) -> str:
+        return self.title
+
+    class Meta:
+        verbose_name_plural = 'Контактные данные'
 
 
 class Feedback(models.Model):

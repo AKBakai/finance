@@ -1,3 +1,6 @@
 from django.contrib import admin
+from parler.admin import TranslatableAdmin
+from app.contacts.models import Contacts
 
-# Register your models here.
+
+admin.site.register(Contacts, TranslatableAdmin)

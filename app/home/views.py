@@ -4,8 +4,10 @@ from django.utils.translation import get_language, activate, gettext
 import requests
 from bs4 import BeautifulSoup
 
-from app.home.models import Carousel
+from app.financing.models import Financing
+from app.home.models import Carousel, AboutUsShort, ContactUsShort
 from app.home.form import FeedbackForm
+from app.news.models import News
 
 url = 'https://www.nbkr.kg/index.jsp?lang=RUS'
 
@@ -13,6 +15,10 @@ url = 'https://www.nbkr.kg/index.jsp?lang=RUS'
 def home(request):
     trans = translate(language='ru')
     carousel_list = Carousel.objects.all()
+    about_us_short = AboutUsShort.objects.filter().order_by('-id')[:1]
+    contacts_data = ContactUsShort.objects.filter().order_by('-id')[:1]
+    financing_list = Financing.objects.filter().order_by('-id')[:4]
+    news_list = News.objects.filter().order_by('-id')[:4]
     if request.method == 'POST':
         form = FeedbackForm(request.POST)
         if form.is_valid():
@@ -34,6 +40,10 @@ def home(request):
             a.append(i)
     context = {
         'carousel_list': carousel_list,
+        'about_us_short': about_us_short,
+        'contacts_data': contacts_data,
+        'financing_list': financing_list,
+        'news_list': news_list,
         'trans': trans,
         'form': form,
         'date': tr,

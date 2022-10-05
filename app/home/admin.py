@@ -1,6 +1,6 @@
 from django.contrib import admin
 from parler.admin import TranslatableAdmin
-from .models import Carousel, Feedback
+from .models import Carousel, Feedback, AboutUsShort, ContactUsShort
 
 
 class FeedbackAdmin(admin.ModelAdmin):
@@ -13,3 +13,6 @@ class FeedbackAdmin(admin.ModelAdmin):
 
 admin.site.register(Carousel, TranslatableAdmin)
 admin.site.register(Feedback, FeedbackAdmin)
+admin.site.register(AboutUsShort, TranslatableAdmin)
+admin.site.register(ContactUsShort, TranslatableAdmin)
+

@@ -11,60 +11,14 @@
   <section class="contact-content">
     <h1>Контакты</h1>
     <div class="card-all">
-      
+      {% for i in contacts %}
       <div class="card">
+          <h3>{{ i.title }}</h3>
         <div class="ck-editor">
-          <h3>Уважаемые клиенты!</h3>
-          <p>Вы можете оставить отзыв о качестве предоставляемых услуг, обратиться с жалобой и внести предложения по улучшению деятельности Компании.</p>
-
-<p>&nbsp;</p>
-
-<p><strong>Свои обращения можете оставить:</strong></p>
-
-<p>&nbsp; &nbsp; &nbsp; &bull; В книге отзывов и предложений</p>
-
-<p>&nbsp; &nbsp; &nbsp; &bull; В ящике для жалоб и предложений</p>
-
-<p>&nbsp; &nbsp; &nbsp; &bull; Позвонив по номеру 0555 781 503</p>
-
-<p>&nbsp; &nbsp; &nbsp; &bull; На сайте&nbsp;<a href="http://www.salymfinance.kg/">www.salymfinance.kg</a></p>
-
-<p>&nbsp; &nbsp; &nbsp; &bull; Обратиться в головной офис по адресу: г.Бишкек пр.Манаса 40 кабинет №1</p>
-
-<p>&nbsp; &nbsp; &nbsp; &bull; Обратиться в отдел по защите прав потребителей Национального банка КР, г.Бишкек, ул. Уметалиева 101, 0312 614578</p>
-
-<p>&nbsp;</p>
-
-<p><strong>МФК &laquo;Салым Финанс&raquo; гарантирует своим клиентам оперативное и справедливое рассмотрение обращений и жалоб.&nbsp;</strong></p>
-          <br>
+          <p>{{ i.text|safe}}</p>
         </div>
-        
       </div>
-      
-      <div class="card">
-        <div class="ck-editor">
-          <h3>Адрес</h3>
-          <p>Кыргызская Республика, г. Бишкек 720001<br />
-Проспект Манаса 40 / Проспект Чуй 164</p>
-
-<p>&nbsp;</p>
-
-<p><span style="color:#c80000"><strong>Приемная:</strong></span><br />
-0 (312) 610&nbsp;513<br />
-0 (550) 781&nbsp;537</p>
-
-<p><span style="color:#c80000"><strong>По вопросам кредитования:</strong></span><br />
-0 (555) 781 556<br />
-0 (700) 781 556<br />
-0 (777) 781 556</p>
-
-<p><span style="color:#c80000"><strong>По депозитам и облигациям:</strong></span><br />
-0 (550) 781 501</p>
-          <br>
-        </div>
-        
-      </div>
-      
+      {% endfor %}
     </div>
   </section>
   <section class="feedback" id="checkboxForm">
