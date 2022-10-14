@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="financedb@localhost" uuid="87abfcac-8f65-4018-8655-678720633299">
+    <data-source source="LOCAL" name="financedbi@localhost" uuid="2dd8cf93-cc16-43c4-b94b-ed2dcb041907">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/financedb</jdbc-url>
+      <jdbc-url>jdbc:postgresql://localhost:5432/financedbi</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

@@ -20,7 +20,7 @@ def news_detail(request, id):
 def search_1(request):
     if 'q' in request.GET:
         q = request.GET['q']
-        multiple_q = Q(Q(title__icontains=q) | Q(paragraph__icontains=q))
+        multiple_q = Q(Q(title__icontains=q) | Q(text__icontains=q))
         news_lists = News.objects.filter(multiple_q)
     else:
         news_lists = News.objects.all()

@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 from pathlib import Path
 from dotenv import load_dotenv
+from django.utils.translation import gettext_lazy as _
+import django.conf.locale
 
 load_dotenv()
 
@@ -34,6 +36,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -129,7 +132,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'Asia/Bishkek'
 
@@ -154,13 +157,33 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
-from django.utils.translation import gettext_lazy as _
-
 LANGUAGES = (
-    ('ru', _('Russian')),
     ('ky', _('Kyrgyz')),
+    ('ru', _('Russian')),
     ('en', _('English')),
 )
+
+# EXTRA_LANG_INFO = {
+#     'ru': {
+#         'bidi': False,
+#         'code': 'ru',
+#         'name': 'russian',
+#         'name_local': 'русский'
+#     },
+# }
+
+
+# LANG_INFO = django.conf.locale.LANG_INFO
+# LANG_INFO.update(EXTRA_LANG_INFO)
+# django.conf.locale.LANG_INFO = LANG_INFO
+
+
+
+
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'ru'
+# MODELTRANSLATION_LANGUAGES = ('ru', 'ky', 'en')
+
+
 
 # LOCALE_PATHS = (
 #     os.path.join(BASE_DIR, 'locale/'),

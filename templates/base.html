@@ -87,7 +87,7 @@
         <div class="nav-top__content">
           <div class="nav-top-left">
 {#            <a href="/ru/"><div class="logo"><img src="{% static 'img/jpg/logo.png' %}" alt="load img"/></div></a>#}
-            <a href="/ru/"><div class="logo"><a href="/ru/"><img src="/static/img/jpg/logon1.png" alt="load img"/></a></div></a>
+            <a href="/"><div class="logo"><img src="/static/img/jpg/logon1.png" alt="load img"/></div></a>
 
             <div class="lang">
                 <div class="lang-but open-dropdown">
@@ -100,24 +100,10 @@
                     {% get_available_languages as LANGUAGES %}
                     {% get_language_info_list for LANGUAGES as languages %}
                     {% for lang in languages %}
-                    <a class="" href="/{{ lang.code }}/">
+                    <a class="" href="/{{ lang.code }}{{ request.get_full_path|slice:'3:' }}">
                         {{ lang.name_local }}
                     </a>
                     {% endfor %}
-
-
-{#                  <a class="active">#}
-{##}
-{#                    <a class="active">Русский</a>#}
-{##}
-{#                  <a class=""href="/kg/">#}
-{##}
-{#                    <a href="/kg/">Кыргызча</a>#}
-{##}
-{#                  <a class=""href="/templates/en/">#}
-{##}
-{#                    <a href="/templates/en/">English</a>#}
-
 
                 </div>
             </div>
@@ -142,20 +128,58 @@
           <div class="navigation">
             <ul>
 
-            <li><a href="/">{% trans 'Главная' %}</a></li>
-            <li><a href="/about_us">{% trans 'О нас' %}</a></li>
-            <li><a href="/financing_list">{% trans 'Финансирования' %}</a></li>
-            <li><a href="/partners">{% trans 'Партнеры' %}</a></li>
-            <li><a href="/sharia_board">{% trans 'Шариатский совет'%}</a></li>
-            <li><a href="/news_list">{% trans 'Новости' %}</a></li>
-            <li><a href="/contacts">{% trans 'Контакты' %}</a></li>
+            <li><a href="{% url 'home:home' %}">{% trans 'Home' %}</a></li>
+            <li><a href="{% url 'about_us:about_us' %}">{% trans 'About us' %}</a></li>
+            <li><a href="{% url 'financing_list:financing_list' %}">{% trans 'Financing' %}</a></li>
+            <li><a href="{% url 'partners:partners' %}">{% trans 'Partners' %}</a></li>
+            <li><a href="{% url 'sharia_board:sharia_board' %}">{% trans 'Sharia Board'%}</a></li>
+            <li><a href="{% url 'news_list:news_list' %}">{% trans 'News' %}</a></li>
+            <li><a href="{% url 'contacts:contacts' %}">{% trans 'Contacts' %}</a></li>
 
             </ul>
           </div>
+            {% if 'news_list' in request.get_full_path|slice:'3:' %}
                <form action="{% url 'news_list:search_1' %}" method="get" class="form-inline my-2 my-lg-0">
                    <input class="form-control mr-sm-2" name="q" type="text" placeholder="Search" aria-label="Search">
                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                </form>
+            {% endif %}
+            {% if 'financing_list' in request.get_full_path|slice:'3:' %}
+               <form action="{% url 'financing_list:search_3' %}" method="get" class="form-inline my-2 my-lg-0">
+                   <input class="form-control mr-sm-2" name="q" type="text" placeholder="Search" aria-label="Search">
+                   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+               </form>
+            {% endif %}
+            {% if 'about_us' in request.get_full_path|slice:'3:' %}
+               <form action="{% url 'about_us:search' %}" method="get" class="form-inline my-2 my-lg-0">
+                   <input class="form-control mr-sm-2" name="q" type="text" placeholder="Search" aria-label="Search">
+                   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+               </form>
+            {% endif %}
+            {% if 'contacts' in request.get_full_path|slice:'3:' %}
+               <form action="{% url 'contacts:contacts' %}" method="get" class="form-inline my-2 my-lg-0">
+                   <input class="form-control mr-sm-2" name="q" type="text" placeholder="Search" aria-label="Search">
+                   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+               </form>
+            {% endif %}
+{#            {% if '/' in request.get_full_path|slice:'3:' %}#}
+{#               <form action="{% url 'home:search_5' %}" method="get" class="form-inline my-2 my-lg-0">#}
+{#                   <input class="form-control mr-sm-2" name="q" type="text" placeholder="Search" aria-label="Search">#}
+{#                   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>#}
+{#               </form>#}
+{#            {% endif %}#}
+            {% if 'partners' in request.get_full_path|slice:'3:' %}
+               <form action="{% url 'partners:partners' %}" method="get" class="form-inline my-2 my-lg-0">
+                   <input class="form-control mr-sm-2" name="q" type="text" placeholder="Search" aria-label="Search">
+                   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+               </form>
+            {% endif %}
+            {% if 'sharia_board' in request.get_full_path|slice:'3:' %}
+               <form action="{% url 'sharia_board:sharia_board' %}" method="get" class="form-inline my-2 my-lg-0">
+                   <input class="form-control mr-sm-2" name="q" type="text" placeholder="Search" aria-label="Search">
+                   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+               </form>
+            {% endif %}
         </div>
       </div>
     </div>
@@ -168,8 +192,7 @@
           <div class="icon-hamburger"><span></span><span></span><span></span><span></span></div>
         </div>
       </div>
-      <div class="logo"><a href="/ru/"><img src="/static/img/svg/logo.svg" alt="load img"/></a></div>
-      <div class="header-search"><a href="/ru/search/"></a></div>
+      <div class="logo"><a href="/ru/"><img src="/static/img/jpg/logon1n.png" alt="load img"/></a></div>
     </div>
 
   </div>
@@ -221,7 +244,7 @@
 {#        <div class="footer-center__block">#}
 {#          <h4>Кредиты</h4>#}
 {#          <ul>#}
-{#            <li><a href="/ru/credit/">Все кредиты</a></li>#}
+{#            <li><a href="/en/credit/">Все кредиты</a></li>#}
 {#          </ul>#}
 {#        </div>#}
         <div class="footer-center__block" style="width: 396px">
@@ -243,8 +266,8 @@
           <h4>{% trans 'Мы в соцсетях' %}</h4>
 {#          <div class="mitap-block">#}
 {#            <ul>#}
-{#              <li><a href="/ru/branch-network/?filter=all">Филиальная сеть</a></li>#}
-{#              <li><a href="/ru/branch-network/?filter=all">Филиальная сеть</a></li>#}
+{#              <li><a href="/en/branch-network/?filter=all">Филиальная сеть</a></li>#}
+{#              <li><a href="/en/branch-network/?filter=all">Филиальная сеть</a></li>#}
 {#            </ul>#}
             <div class="social-link-all">
                 <ul>
@@ -278,7 +301,7 @@
 {#  window.chat24_socket_url ="wss://livechatv2.chat2desk.com/widget_ws_new";#}
 {#  window.chat24_show_new_wysiwyg = "true";#}
 {#  window.chat24_static_files_domain = "https://storage.chat2desk.com/";#}
-{#  window.lang = "ru";#}
+{#  window.lang = "en";#}
 {#  window.fetch("".concat(window.chat24_url, "/packs/manifest.json?nocache=").concat(new Date().getTime())).then(function (res) {#}
 {#    return res.json();#}
 {#  }).then(function (data) {#}

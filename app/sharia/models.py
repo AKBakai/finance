@@ -3,11 +3,9 @@ from parler.models import TranslatableModel, TranslatedFields
 
 
 class ShariaBoard(TranslatableModel):
-    translations = TranslatedFields(
-        title=models.CharField(verbose_name="Наименование", max_length=255),
-        paragraph=models.CharField(verbose_name="Абзац", max_length=500),
-        image=models.ImageField(verbose_name='Фото', upload_to='ShariaBoard/%Y/%m/%d'),
-    )
+    title = models.CharField(verbose_name="Наименование", max_length=255)
+    paragraph = models.CharField(verbose_name="Абзац", max_length=500)
+    image = models.ImageField(verbose_name='Фото', upload_to='ShariaBoard/%Y/%m/%d')
 
     def __str__(self) -> str:
         return self.title
@@ -18,10 +16,8 @@ class ShariaBoard(TranslatableModel):
 
 
 class ShariaBoardInfo(TranslatableModel):
-    translations = TranslatedFields(
-        title=models.CharField(verbose_name="Наименование", max_length=255),
-        paragraph=models.CharField(verbose_name="Абзац", max_length=500),
-    )
+    title = models.CharField(verbose_name="Наименование", max_length=255)
+    paragraph = models.CharField(verbose_name="Абзац", max_length=500)
 
     def __str__(self) -> str:
         return self.title

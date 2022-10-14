@@ -1,5 +1,4 @@
 from django.contrib import admin
-from parler.admin import TranslatableAdmin
 from .models import Carousel, Feedback, AboutUsShort, ContactUsShort
 
 
@@ -11,8 +10,8 @@ class FeedbackAdmin(admin.ModelAdmin):
     fields = ('name', 'surname', 'phone', 'question')
 
 
-admin.site.register(Carousel, TranslatableAdmin)
+admin.site.register(Carousel)
 admin.site.register(Feedback, FeedbackAdmin)
-admin.site.register(AboutUsShort, TranslatableAdmin)
-admin.site.register(ContactUsShort, TranslatableAdmin)
+admin.site.register(AboutUsShort)
+admin.site.register(ContactUsShort)
 

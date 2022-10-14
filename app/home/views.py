@@ -1,6 +1,5 @@
+from django.db.models import Q
 from django.shortcuts import render, redirect
-from django.utils.translation import gettext as _
-from django.utils.translation import get_language, activate, gettext
 import requests
 from bs4 import BeautifulSoup
 
@@ -13,11 +12,9 @@ url = 'https://www.nbkr.kg/index.jsp?lang=RUS'
 
 
 def home(request):
-    trans = translate(language='ru')
     carousel_list = Carousel.objects.all()
     about_us_short = AboutUsShort.objects.filter().order_by('-id')[:1]
     contacts_data = ContactUsShort.objects.filter().order_by('-id')[:1]
-    financing_list = Financing.objects.filter().order_by('-id')[:4]
     news_list = News.objects.filter().order_by('-id')[:4]
     if request.method == 'POST':
         form = FeedbackForm(request.POST)
@@ -42,9 +39,7 @@ def home(request):
         'carousel_list': carousel_list,
         'about_us_short': about_us_short,
         'contacts_data': contacts_data,
-        'financing_list': financing_list,
         'news_list': news_list,
-        'trans': trans,
         'form': form,
         'date': tr,
         'exrate': a[0],
@@ -55,11 +50,23 @@ def home(request):
     return render(request, 'index.html', context)
 
 
-def translate(language):
-    cur_language = get_language()
-    try:
-        activate(language)
-        text = gettext('hello')
-    finally:
-        activate(cur_language)
-    return text
+def search_5(request):
+    if 'q' in request.GET:
+        q = request.GET['q']
+        multiple_q = Q(Q(title__icontains=q) | Q(paragraph__icontains=q) | Q(text__icontains=q))
+        carousel_list = Carousel.objects.filter(multiple_q)
+        about_us_short = AboutUsShort.objects.filter(multiple_q)
+        contacts_data = ContactUsShort.objects.filter(multiple_q)
+        news_list = News.objects.filter(multiple_q)
+    else:
+        carousel_list = Carousel.objects.all()
+        about_us_short = AboutUsShort.objects.all()
+        contacts_data = ContactUsShort.objects.all()
+        news_list = News.objects.all()
+    context = {
+        'carousel_list': carousel_list,
+        'about_us_short': about_us_short,
+        'contacts_data': contacts_data,
+        'news_list': news_list
+    }
+    return render(request, 'index.html', context)

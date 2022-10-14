@@ -1,14 +1,11 @@
 from ckeditor.fields import RichTextField
 from django.db import models
-from parler.models import TranslatableModel, TranslatedFields
 
 
-class Carousel(TranslatableModel):
-    translations = TranslatedFields(
-        title=models.CharField(verbose_name="Наименование", max_length=255),
-        paragraph=models.TextField(verbose_name='Абзац'),
-        image=models.ImageField(upload_to='Carousel/%Y/%m/%d'),
-    )
+class Carousel(models.Model):
+    title = models.CharField(verbose_name="Наименование", max_length=255)
+    paragraph = models.TextField(verbose_name='Абзац')
+    image = models.ImageField(upload_to='Carousel/%Y/%m/%d')
 
     def __str__(self) -> str:
         return self.title
@@ -17,12 +14,10 @@ class Carousel(TranslatableModel):
         verbose_name_plural = 'Слайды'
 
 
-class AboutUsShort(TranslatableModel):
-    translations = TranslatedFields(
-        title=models.CharField(verbose_name="Наименование", max_length=255),
-        text=RichTextField(verbose_name='Текст',),
-        image=models.ImageField(upload_to='AboutUsShort/%Y/%m/%d'),
-    )
+class AboutUsShort(models.Model):
+    title = models.CharField(verbose_name="Наименование", max_length=255)
+    text = RichTextField(verbose_name='Текст',)
+    image = models.ImageField(upload_to='AboutUsShort/%Y/%m/%d')
 
     def __str__(self) -> str:
         return self.title
@@ -31,12 +26,10 @@ class AboutUsShort(TranslatableModel):
         verbose_name_plural = 'Коротко о нас'
 
 
-class ContactUsShort(TranslatableModel):
-    translations = TranslatedFields(
-        title=models.CharField(verbose_name="Наименование", max_length=255),
-        text=RichTextField(verbose_name='Текст',),
-        image=models.ImageField(upload_to='ContactUsShort/%Y/%m/%d'),
-    )
+class ContactUsShort(models.Model):
+    title = models.CharField(verbose_name="Наименование", max_length=255)
+    text = RichTextField(verbose_name='Текст',)
+    image = models.ImageField(upload_to='ContactUsShort/%Y/%m/%d')
 
     def __str__(self) -> str:
         return self.title
