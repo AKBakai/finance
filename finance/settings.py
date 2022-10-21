@@ -193,17 +193,17 @@ LOCALE_PATHS = [
     BASE_DIR / 'locale/',
 ]
 
-PARLER_LANGUAGES = {
-    None: (
-        {'code': 'en',},
-        {'code': 'ru',},
-        {'code': 'ky',},
-    ),
-    'default': {
-        'fallbacks': ['en'],
-        'hide_untranslated': False,
-    }
-}
+# PARLER_LANGUAGES = {
+#     None: (
+#         {'code': 'en',},
+#         {'code': 'ru',},
+#         {'code': 'ky',},
+#     ),
+#     'default': {
+#         'fallbacks': ['en'],
+#         'hide_untranslated': False,
+#     }
+# }
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

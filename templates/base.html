@@ -128,57 +128,113 @@
           <div class="navigation">
             <ul>
 
-            <li><a href="{% url 'home:home' %}">{% trans 'Home' %}</a></li>
-            <li><a href="{% url 'about_us:about_us' %}">{% trans 'About us' %}</a></li>
-            <li><a href="{% url 'financing_list:financing_list' %}">{% trans 'Financing' %}</a></li>
-            <li><a href="{% url 'partners:partners' %}">{% trans 'Partners' %}</a></li>
-            <li><a href="{% url 'sharia_board:sharia_board' %}">{% trans 'Sharia Board'%}</a></li>
-            <li><a href="{% url 'news_list:news_list' %}">{% trans 'News' %}</a></li>
-            <li><a href="{% url 'contacts:contacts' %}">{% trans 'Contacts' %}</a></li>
+            <li><a href="{% url 'home:home' %}">{% trans 'Главная' %}</a></li>
+            <li><a href="{% url 'about_us:about_us' %}">{% trans 'О нас' %}</a></li>
+            <li><a href="{% url 'financing_list:financing_list' %}">{% trans 'Финансирования' %}</a></li>
+            <li><a href="{% url 'partners:partners' %}">{% trans 'Партнеры' %}</a></li>
+            <li><a href="{% url 'sharia_board:sharia_board' %}">{% trans 'Шариатский совет'%}</a></li>
+            <li><a href="{% url 'news_list:news_list' %}">{% trans 'Новости' %}</a></li>
+            <li><a href="{% url 'contacts:contacts' %}">{% trans 'Контакты' %}</a></li>
 
             </ul>
           </div>
-            {% if 'news_list' in request.get_full_path|slice:'3:' %}
-               <form action="{% url 'news_list:search_1' %}" method="get" class="form-inline my-2 my-lg-0">
-                   <input class="form-control mr-sm-2" name="q" type="text" placeholder="Search" aria-label="Search">
-                   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-               </form>
-            {% endif %}
-            {% if 'financing_list' in request.get_full_path|slice:'3:' %}
-               <form action="{% url 'financing_list:search_3' %}" method="get" class="form-inline my-2 my-lg-0">
-                   <input class="form-control mr-sm-2" name="q" type="text" placeholder="Search" aria-label="Search">
-                   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-               </form>
+            {% if main_page %}
+            <form action="{% url 'financing_list:search_3' %}" method="get">
+            <div class="box-menu" style="margin-left: 100px; ">
+                <div class="search my-10 my-lg-0" style="width: 200px; height: 20px ;">
+                  <input class="form-control mr-sm-2" name="q" style="border-radius: 25px; border-color: rgba(0, 0, 0, 0.25); text-align: center;" type="text" placeholder="Поиск">
+                      <label for="check" class="search-icon">
+                        <button type="submit" style="border: none; background-color:#fff">
+                          <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                      </label>
+                </div>
+            </div>
+            </form>
             {% endif %}
             {% if 'about_us' in request.get_full_path|slice:'3:' %}
-               <form action="{% url 'about_us:search' %}" method="get" class="form-inline my-2 my-lg-0">
-                   <input class="form-control mr-sm-2" name="q" type="text" placeholder="Search" aria-label="Search">
-                   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-               </form>
+            <form action="{% url 'financing_list:search_3' %}" method="get">
+            <div class="box-menu" style="margin-left: 100px; ">
+                <div class="search my-10 my-lg-0" style="width: 200px; height: 20px ;">
+                  <input class="form-control mr-sm-2" name="q" style="border-radius: 25px; border-color: rgba(0, 0, 0, 0.25); text-align: center;" type="text" placeholder="Поиск">
+                      <label for="check" class="search-icon">
+                        <button type="submit" style="border: none; background-color:#fff">
+                          <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                      </label>
+                </div>
+            </div>
+            </form>
             {% endif %}
-            {% if 'contacts' in request.get_full_path|slice:'3:' %}
-               <form action="{% url 'contacts:contacts' %}" method="get" class="form-inline my-2 my-lg-0">
-                   <input class="form-control mr-sm-2" name="q" type="text" placeholder="Search" aria-label="Search">
-                   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-               </form>
+            {% if 'financing_list' in request.get_full_path|slice:'3:' %}
+            <form action="{% url 'financing_list:search_3' %}" method="get">
+            <div class="box-menu" style="margin-left: 100px; ">
+                <div class="search my-10 my-lg-0" style="width: 200px; height: 20px ;">
+                  <input class="form-control mr-sm-2" name="q" style="border-radius: 25px; border-color: rgba(0, 0, 0, 0.25); text-align: center;" type="text" placeholder="Поиск">
+                      <label for="check" class="search-icon">
+                        <button type="submit" style="border: none; background-color:#fff">
+                          <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                      </label>
+                </div>
+            </div>
+            </form>
             {% endif %}
-{#            {% if '/' in request.get_full_path|slice:'3:' %}#}
-{#               <form action="{% url 'home:search_5' %}" method="get" class="form-inline my-2 my-lg-0">#}
-{#                   <input class="form-control mr-sm-2" name="q" type="text" placeholder="Search" aria-label="Search">#}
-{#                   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>#}
-{#               </form>#}
-{#            {% endif %}#}
             {% if 'partners' in request.get_full_path|slice:'3:' %}
-               <form action="{% url 'partners:partners' %}" method="get" class="form-inline my-2 my-lg-0">
-                   <input class="form-control mr-sm-2" name="q" type="text" placeholder="Search" aria-label="Search">
-                   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-               </form>
+            <form action="{% url 'financing_list:search_3' %}" method="get">
+            <div class="box-menu" style="margin-left: 100px; ">
+                <div class="search my-10 my-lg-0" style="width: 200px; height: 20px ;">
+                  <input class="form-control mr-sm-2" name="q" style="border-radius: 25px; border-color: rgba(0, 0, 0, 0.25); text-align: center;" type="text" placeholder="Поиск">
+                      <label for="check" class="search-icon">
+                        <button type="submit" style="border: none; background-color:#fff">
+                          <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                      </label>
+                </div>
+            </div>
+            </form>
             {% endif %}
             {% if 'sharia_board' in request.get_full_path|slice:'3:' %}
-               <form action="{% url 'sharia_board:sharia_board' %}" method="get" class="form-inline my-2 my-lg-0">
-                   <input class="form-control mr-sm-2" name="q" type="text" placeholder="Search" aria-label="Search">
-                   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-               </form>
+            <form action="{% url 'financing_list:search_3' %}" method="get">
+            <div class="box-menu" style="margin-left: 100px; ">
+                <div class="search my-10 my-lg-0" style="width: 200px; height: 20px ;">
+                  <input class="form-control mr-sm-2" name="q" style="border-radius: 25px; border-color: rgba(0, 0, 0, 0.25); text-align: center;" type="text" placeholder="Поиск">
+                      <label for="check" class="search-icon">
+                        <button type="submit" style="border: none; background-color:#fff">
+                          <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                      </label>
+                </div>
+            </div>
+            </form>
+            {% endif %}
+            {% if 'news_list' in request.get_full_path|slice:'3:' %}
+            <form action="{% url 'news_list:search_1' %}" method="get">
+            <div class="box-menu" style="margin-left: 100px; ">
+                <div class="search my-10 my-lg-0" style="width: 200px; height: 20px ;">
+                  <input class="form-control mr-sm-2" name="q" style="border-radius: 25px; border-color: rgba(0, 0, 0, 0.25); text-align: center;" type="text" placeholder="Поиск">
+                      <label for="check" class="search-icon">
+                        <button type="submit" style="border: none; background-color:#fff">
+                          <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                      </label>
+                </div>
+            </div>
+            </form>
+            {% endif %}
+            {% if 'contacts' in request.get_full_path|slice:'3:' %}
+            <form action="{% url 'financing_list:search_3' %}" method="get">
+            <div class="box-menu" style="margin-left: 100px; ">
+                <div class="search my-10 my-lg-0" style="width: 200px; height: 20px ;">
+                  <input class="form-control mr-sm-2" name="q" style="border-radius: 25px; border-color: rgba(0, 0, 0, 0.25); text-align: center;" type="text" placeholder="Поиск">
+                      <label for="check" class="search-icon">
+                        <button type="submit" style="border: none; background-color:#fff">
+                          <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                      </label>
+                </div>
+            </div>
+            </form>
             {% endif %}
         </div>
       </div>
@@ -193,6 +249,19 @@
         </div>
       </div>
       <div class="logo"><a href="/ru/"><img src="/static/img/jpg/logon1n.png" alt="load img"/></a></div>
+    </div>
+    <div class="header-mobile-menu">
+      <div class="navigation">
+          <ul>
+            <li><a href="{% url 'home:home' %}">{% trans 'Главная' %}</a></li>
+            <li><a href="{% url 'about_us:about_us' %}">{% trans 'О нас' %}</a></li>
+            <li><a href="{% url 'financing_list:financing_list' %}">{% trans 'Финансирования' %}</a></li>
+            <li><a href="{% url 'partners:partners' %}">{% trans 'Партнеры' %}</a></li>
+            <li><a href="{% url 'sharia_board:sharia_board' %}">{% trans 'Шариатский совет'%}</a></li>
+            <li><a href="{% url 'news_list:news_list' %}">{% trans 'Новости' %}</a></li>
+            <li><a href="{% url 'contacts:contacts' %}">{% trans 'Контакты' %}</a></li>
+          </ul>
+      </div>
     </div>
 
   </div>

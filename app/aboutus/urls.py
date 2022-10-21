@@ -5,5 +5,4 @@ app_name = 'aboutus'
 
 urlpatterns = [
     path('', views.about_us, name='about_us'),
-    path('search', views.search, name='search'),
 ]

@@ -1,9 +1,7 @@
-from django.db.models import Q
 from django.shortcuts import render, redirect
 import requests
 from bs4 import BeautifulSoup
 
-from app.financing.models import Financing
 from app.home.models import Carousel, AboutUsShort, ContactUsShort
 from app.home.form import FeedbackForm
 from app.news.models import News
@@ -45,28 +43,7 @@ def home(request):
         'exrate': a[0],
         'exrate1': a[1],
         'exrate2': a[2],
-        'exrate3': a[3]
-    }
-    return render(request, 'index.html', context)
-
-
-def search_5(request):
-    if 'q' in request.GET:
-        q = request.GET['q']
-        multiple_q = Q(Q(title__icontains=q) | Q(paragraph__icontains=q) | Q(text__icontains=q))
-        carousel_list = Carousel.objects.filter(multiple_q)
-        about_us_short = AboutUsShort.objects.filter(multiple_q)
-        contacts_data = ContactUsShort.objects.filter(multiple_q)
-        news_list = News.objects.filter(multiple_q)
-    else:
-        carousel_list = Carousel.objects.all()
-        about_us_short = AboutUsShort.objects.all()
-        contacts_data = ContactUsShort.objects.all()
-        news_list = News.objects.all()
-    context = {
-        'carousel_list': carousel_list,
-        'about_us_short': about_us_short,
-        'contacts_data': contacts_data,
-        'news_list': news_list
+        'exrate3': a[3],
+        'main_page': True
     }
     return render(request, 'index.html', context)
