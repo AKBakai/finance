@@ -23,11 +23,14 @@ def home(request):
         form = FeedbackForm()
     sourse = requests.get(url)
     main_text = sourse.text
-    soup = BeautifulSoup(main_text)
+    soup = BeautifulSoup(main_text, features="html.parser")
     div = soup.find('div', {'id': 'sticker-exrates'})
     tr = div.find('span', {'class': 'gold-date'})
     tr1 = div.findAll('td', {'class': 'exrate'})
     tr = tr.text
+    l = str(tr)
+    slice_t = slice(2, 13)
+    s = l[slice_t]
     a = []
     for i in tr1:
         if tr1.index(i) % 2 != 0:
@@ -39,7 +42,7 @@ def home(request):
         'contacts_data': contacts_data,
         'news_list': news_list,
         'form': form,
-        'date': tr,
+        'date': s,
         'exrate': a[0],
         'exrate1': a[1],
         'exrate2': a[2],

@@ -262,8 +262,25 @@
             <li><a href="{% url 'contacts:contacts' %}">{% trans 'Контакты' %}</a></li>
           </ul>
       </div>
-    </div>
+         <div class="lang">
+            <div class="lang-but open-dropdown">
+              <a class="kg"></a>
+              <a class="ru"></a>
+              <a class="en"></a>
+            </div>
+            <div class="lang-but__content content-dropdown">
+                {% get_current_language as LANGUAGE_CODE %}
+                {% get_available_languages as LANGUAGES %}
+                {% get_language_info_list for LANGUAGES as languages %}
+                {% for lang in languages %}
+                <a class="" href="/{{ lang.code }}{{ request.get_full_path|slice:'3:' }}">
+                    {{ lang.name_local }}
+                </a>
+                {% endfor %}
 
+            </div>
+        </div>
+    </div>
   </div>
   <div class="background-image"></div>
     <a class="gotopbtn" href="#"><i class="fa-solid fa-chevron-up"></i></a>
